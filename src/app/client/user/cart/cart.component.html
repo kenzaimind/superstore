@@ -1,0 +1,154 @@
+<div class="nav navbar-nav float-xs-right ">
+
+  <h5><span class="fa fa-shopping-basket fa-1x blue" style="float:right;" data-toggle="modal" data-target="#myModal">
+        <span>({{cartService.getTotalItem()}} items)</span>
+      </span></h5>
+</div>
+
+<div class="modal" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <div *ngIf=cartItems>
+          <div class="table-responsive">
+            <table class="table table-sm table-striped table-bordered table-cart">
+              <tbody>
+                <tr>
+                  <td class="font-weight-bold">product</td>
+                  <td class="font-weight-bold">Price</td>
+                  <td class="font-weight-bold">Quantity</td>
+
+                </tr>
+                <tr *ngFor="let Item of cartItems">
+                  <td style="color:black">{{Item.name}}</td>
+                  <td style="color:black">{{Item.discountprize*Item.count| currency:'INR':true:'1.2-2'}}</td>
+                  <td style="color:black">{{Item.count}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="total-cart float-xs-right">
+                <b style="color:black">Total: {{cartService.cartSummaryPrice | currency:'INR':true:'1.2-2'}}</b>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row"  data-dismiss="modal">
+          <div class="col-md-6 text-left">
+            <a [routerLink]="['/details']" class="btn btn-success left " type="button"> 
+              <i class="fa fa-shopping-cart" data-dismiss="modal" class="close" ></i> Cart</a></div>
+          <div class="col-md-6 text-right">
+            <a [routerLink]="['/checkout']" class="btn btn-success right btn-cart">
+              <i class="fa fa-credit-card"  data-dismiss="modal"></i> Checkout</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!--<div class="nav navbar-nav float-xs-right">                                       
+  <div class="dropdown" style="float:left;">
+    <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+      <span class="fa fa-shopping-basket fa-2x blue"><h6>({{cartService.getTotalItem()}} items)</h6></span>  
+    </a>
+    <ul class="dropdown-menu" style="float:left;">
+      <div *ngIf=cartItems>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped table-bordered table-cart">
+            <tbody>
+              <tr>
+                <td class="font-weight-bold">product</td>
+                <td class="font-weight-bold">Price</td>
+                <td class="font-weight-bold">Quantity</td>
+                
+              </tr>
+              <tr *ngFor="let Item of cartItems">
+                <td>{{Item.name}}</td>
+                <td>{{Item.cost*Item.count| currency:'USD':true:'1.2-2'}}</td>
+                <td>{{Item.count}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="total-cart float-xs-right">
+              <b>Total: {{cartService.cartSummaryPrice | currency:'USD':true:'1.2-2'}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <a [routerLink]="['/details']" class="btn btn-success custom-button-width " type="button"> 
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a></div>
+          <div class="col-md-6 text-right">
+            <a [routerLink]="['/checkout']" class="btn btn-success right btn-cart">
+              <i class="fa fa-credit-card" aria-hidden="true"></i> Checkout</a>
+          </div>
+        </div></div>
+        
+      </div>
+    </ul>
+  </div>
+  </div>
+<!--<div class="nav navbar-nav float-xs-right">
+    
+  <span class="nav-item" dropdown (onToggle)="toggled($event)">
+    <a role="button" class="nav-link dropdown-toggle"  id="cart" dropdownToggle aria-haspopup="true" aria-expanded="false">
+      Cart: {{cartService.getTotalPrice() | currency:'USD':true:'1.2-2'}} ({{cartService.getTotalItem()}} items)
+      
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="cart">
+
+      <div *ngIf=cartItems>
+        <div class="table-responsive">
+          <table class="table table-sm table-striped table-bordered table-cart">
+            <tbody>
+              <tr>
+                <td class="font-weight-bold">Name</td>
+                <td class="font-weight-bold">cost</td>
+                <td class="font-weight-bold">Count</td>
+                <td class="font-weight-bold">Amount</td>
+              </tr>
+              <tr *ngFor="let Item of cartItems">
+                <td>{{Item.name}}</td>
+                <td>{{Item.cost| currency:'USD':true:'1.2-2'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="total-cart float-xs-right">
+              <b>Total: {{cartService.getTotalPrice() | currency:'USD':true:'1.2-2'}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a [routerLink]="['/cart']" class="btn btn-primary float-xs-right btn-cart"> 
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+            <a [routerLink]="['/checkout']" class="btn btn-success float-xs-right btn-cart">
+              <i class="fa fa-credit-card" aria-hidden="true"></i> Checkout</a>
+          </div>
+        </div>
+      </div>
+      <div class="emty-cart" *ngIf=!cartItems>The cart is empty!</div>
+    </div>
+  </span>
+</div>-->

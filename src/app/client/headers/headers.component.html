@@ -1,0 +1,115 @@
+<div class="agileits_header">
+	<div class="container">
+
+		<div class="w3l_offers">
+			<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <a href="/products">SHOP NOW</a></p>
+
+		</div>
+		<div class="navbar navbar-default">
+			<div class="navbar-header nav_1">
+				<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+			</div>
+
+
+			<div class="agile-login pull-right">
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs1">
+					<ul>
+
+						<li class="active">
+							<a [routerLink]="['/user/register']" *ngIf="!isLoggedIn()" class="act">
+								<h5> Create Account</h5>
+							</a>
+						</li>
+						<!--<li><a href="contact">Help</a></li>-->
+						<li>
+							<a [routerLink]="['/user/login']" *ngIf="!isLoggedIn()">
+								<h5>Login</h5>
+							</a>
+						</li>
+						<li *ngFor="let user of fetchedUser">
+							<a style="color: white; text-transform: lowercase" *ngIf="isLoggedIn()"><small>welcome {{user.email}}</small></a>
+						</li>
+						<li>
+							<a href="#" (click)="logout()" *ngIf="isLoggedIn()" style="color: white; ">
+								<h5>Logout</h5>
+							</a>
+						</li>
+						<li>
+							<a id="cart">
+								<app-cart></app-cart>
+							</a>
+						</li>
+						<!--<li class="dropdown open" id="menuLogin">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                            <div class="dropdown-menu" style="padding:17px;">
+                                <form id="formLogin" class="form"> 
+                                    <label>Login</label> 
+                                    <input name="_csrf" id="token" type="hidden" value="WsX82mCK-GNvhH1TcbCPMsOKfoksCDcBQvUg">
+    							    <input name="username" id="username" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Enter your username" required="">
+    							    <input name="password" id="password" type="password" placeholder="Password" title="Enter your password" required=""><br>
+    							    <button type="button" id="btnLogin" class="btn">Login</button>
+    							</form>
+                                <form><a href="#" title="Fast and free sign up!" id="btnNewUser" data-toggle="collapse" data-target="#formRegister">New User? Sign-up..</a></form>
+                                <form id="formRegister" class="form collapse">
+                                    <input name="_csrf" id="token" type="hidden" value="WsX82mCK-GNvhH1TcbCPMsOKfoksCDcBQvUg">
+                                    <input name="email" id="inputEmail" type="email" placeholder="Email" required="">
+        						    <input name="username" id="inputUsername" type="text" placeholder="Username" pattern="^[a-z,A-Z,0-9,_]{6,15}$" data-valid-min="6" title="Choose a username" required=""><br>
+    							    <input name="password" id="inputpassword" type="password" placeholder="Password" required=""> 
+                                    <input name="verify" id="inputVerify" type="password" placeholder="Password (again)" required=""><br>                                  
+    							    <button type="button" id="btnRegister" class="btn">Sign Up</button>
+    							</form>
+                                <a data-toggle="modal" role="button" href="#forgotPasswordModal">Forgot username or password?</a>
+                                <a data-toggle="modal" role="button" href="#contactModal"><small>Need help? Contact us</small></a>
+                            </div>
+                        </li>>-->
+
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--
+		<div class="product_list_header pull-right">
+
+			<a [routerLink]="['/details']">
+				<button class="w3view-cart" type="submit" name="submit" value="" data-toggle="modal"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+			</a>
+
+		</div>-->
+
+
+		<!--<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				
+				<div class="modal-content">
+					<div class="modal-header">
+						<table class="table table-hover table-responsive table-condensed">
+							<tbody *ngFor="let selectedfruit of selectedfruits">
+								<tr>
+									<td> <img src="{{selectedfruit.img}} "></td>
+									<td>{{selectedfruit.item}} </td>
+									<td>{{selectedfruit.amount}} </td>
+									<td><button (click)="onDelete(selectedfruit._id)">Remove</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							total pay:{{selectedfruitsService.getTotalPrice()}}
+						</div>
+						<div class="col-md-4 text-right">
+							<a [routerLink]="['/user/login']" *ngIf="!isLoggedIn()" data-dismiss="modal">
+							<button class="btn btn-md btn-primary ">submit</button>
+							</a>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<div class="clearfix"> </div>
+	</div>
+</div>

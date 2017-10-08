@@ -1,0 +1,156 @@
+<app-headers></app-headers>
+<app-toolbar></app-toolbar>
+<app-navbar></app-navbar>
+
+<!--- groceries -->
+<div class="products">
+	<div class="container">
+		<div class="col-md-4 products-left">
+			<div class="categories">
+				<h2>Categories</h2>
+				<ul class="cate">
+					<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Fruits And Vegetables</a></li>
+					<ul>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Cuts & Sprouts</a></li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Flowers</a></li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Fresh Herbs & Seasonings</a></li>
+						<li><a [routerLink]="['/vegetables']"><i class="fa fa-arrow-right" aria-hidden="true"></i>Fresh Vegetables</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>International Vegetables</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Organic Fruits & Vegetables</a></li>
+					</ul>
+					<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Grocery & Staples</a></li>
+					<ul>
+						<li><a [routerLink]="['/groceries']"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dals & Pulses</a></li>
+						<li><a [routerLink]="['/dryfruits']"><i class="fa fa-arrow-right" aria-hidden="true"></i>Dry Fruits</a></li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Edible Oils & Ghee</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Flours & Sooji</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Masalas & Spices</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Organic Staples</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Rice & Rice Products</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Salt, Sugar & Jaggery</a></li>
+					</ul>
+					<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>PersonalCare</a></li>
+					<ul>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Baby Care</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Cosmetics</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Deos & Perfumes</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Skin Care</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sanitary Needs</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Oral Care</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Personal Hygiene</a> </li>
+						<li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Shaving Needs</a></li>
+					</ul>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8 products-right">
+			<div class="products-right-grid">
+				<div class="products-right-grids">
+					<!--<div class="sorting">
+						<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by average rating</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>
+</select>
+					</div>
+					<div class="sorting-left">
+						<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 9</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option>
+<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>All</option>
+</select>
+					</div>-->
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="products">
+				<div class="container">
+					<div class="agileinfo_single">
+
+						<div class="col-md-4 agileinfo_single_left " *ngFor="let grocery of grocerys">
+							
+							<div class="thumbnail">
+								<img id="example" src="./assets/images/{{grocery.img}}" alt="{{grocery.title}}" class="img-responsive">
+							</div>
+							<!--<div class="footerNavWrap clearfix">
+					<div class="btn btn-success pull-left btn-fyi">
+						<button [routerLink]="['/']" type="button" class="btn btn-primary custom-button-width">
+						<span class="glyphicon glyphicon-chevron-left"></span> CONTINUE SHOPPING</button></div>
+
+				-->
+						</div>
+						<div class="col-md-8 agileinfo_single_right" *ngFor="let grocery of grocerys">
+							<h2>{{grocery.name}}</h2>
+							<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i>								<i class="fa fa-star-o"></i> </div>
+
+							<div class="w3agile_description">
+								Description:{{grocery.description}}
+								<div class="product-stock">In Stock</div>
+
+								<!--<p>Availability: In Stock</p>-->
+							</div>
+							<div class="snipcart-item block">
+								<div class="snipcart-thumb agileinfo_single_right_snipcart">
+									<div *ngIf="grocery.discount == 0">
+										<h5 class="card-text" align="center" style="text-align: center;"><b> MRP:Rs{{grocery.cost}}</b></h5>
+									</div>
+								</div>
+								<div class="snipcart-item block">
+									<div *ngIf="grocery.discount > 0">
+
+										<h5 class="card-text" align="center"><b>MRP:<del>Rs{{grocery.cost}}</del></b></h5>
+
+										<h5 class="card-text" align="center"><b>Rs:{{grocery.discountprize}}</b></h5>
+									</div>
+								</div>
+
+								<div id="buttons" *ngFor="let grocery of grocerys">
+									<button class="btn btn-primary" (click)="addToCart(grocery)">Add To Cart</button>
+									<!--<button [routerLink]="['/']" type="button" class="btn btn-primary custom-button-width">
+						<!--<span class="glyphicon glyphicon-chevron-right"></span>CHECKOUT</button></div>-->
+
+
+									<button [routerLink]="['/']" type="button" class="btn btn-primary custom-button-width">
+      <span class="glyphicon glyphicon-chevron-left"></span> CONTINUE SHOPPING</button>
+								</div>
+
+								<!--<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+						
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+						<li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+						
+						
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">
+						 
+							<section class="container product-info">
+								{{grocery.description}}
+							</section>
+										  
+						</div>
+					<div class="tab-pane fade" id="service-two">
+						
+						<section class="container">
+								
+						</section>
+						
+					</div>
+					
+				
+				<hr>
+					<div class="form-group row">
+
+
+-->
+
+							</div>
+						</div>
+
+
+						<div class="clearfix"> </div>
+
+					</div>

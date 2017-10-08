@@ -2,13 +2,55 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Superstore</title>
+  <title>SuperStore</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- //for-mobile-apps -->
+  <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/font-awesome.css">
+  <link rel="stylesheet" href="./assets/css/ng2-toastr.min.css" />
+  
+
+  <script type="application/javascript" src="./assets/js/jquery.js"></script>
+  <!--<script type="application/javascript" src="js/jquery-1.11.1.min.js"></script>-->
+  <script type="application/javascript" src="./assets/js/jquery-ui.min.js"></script>
+  <script type="application/javascript" src="./assets/js/move-top.js"></script>
+  <script type="application/javascript" src="./assets/js/easing.js"></script>
+  <script type="application/javascript" src="./assets/js/bootstrap.js"></script>
+
+  <!-- main slider-banner -->
+  <script src="./assets/js/skdslider.min.js"></script>
+  <script src="./assets/js/checkout.js"></script>
+  <link href="./assets/css/skdslider.css" rel="stylesheet">
+
+  <!-- //main slider-banner -->
+ 
 </head>
 <body>
   <app-root>Loading...</app-root>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+      });
+    });
+
+  </script>
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
+
+      jQuery('#responsive').change(function () {
+        $('#responsive_wrapper').width(jQuery(this).val());
+      });
+
+    });
+
+</script>
+
 </body>
 </html>
